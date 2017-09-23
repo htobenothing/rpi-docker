@@ -1,5 +1,5 @@
 
-From arm32v7/openjdk:slim
+From nothing/docker
 
 
 ARG kafka_version=0.11.0.0
@@ -9,7 +9,6 @@ MAINTAINER htobenothing
 
 RUN apt-get update
 RUN apt-get -y install unzip wget curl jq net-tools
-RUN curl -sSL https://get.docker.com | sh
 
 ENV KAFKA_VERSION=$kafka_version SCALA_VERSION=$scala_version
 ADD download-kafka.sh /tmp/download-kafka.sh
