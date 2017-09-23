@@ -4,7 +4,7 @@ MAINTAINER htobenothing
 ENV ZOOKEEPER_VERSION 3.4.9
 
 
-RUN apt-get update && apt-get -y install wget coreutils gpg
+RUN apt-get update && apt-get -y install wget coreutils gpg openssh-server
 
 #Download Zookeeper
 RUN wget -q http://mirror.vorboss.net/apache/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/zookeeper-${ZOOKEEPER_VERSION}.tar.gz && \
@@ -32,5 +32,5 @@ EXPOSE 2181 2888 3888
 
 WORKDIR /opt/zookeeper-${ZOOKEEPER_VERSION}
 VOLUME ["/opt/zookeeper-${ZOOKEEPER_VERSION}/conf", "/opt/zookeeper-${ZOOKEEPER_VERSION}/data"]
-
-CMD sh /usr/bin/start-zk.sh
+RUN mkdir /run/sshd
+CMD /usr/sbin/sshd && bash /usr/bin/start-zk.sh

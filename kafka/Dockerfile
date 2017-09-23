@@ -8,7 +8,8 @@ ARG scala_version=2.12
 MAINTAINER htobenothing
 
 RUN apt-get update
-RUN apt-get -y install unzip wget curl jq
+RUN apt-get -y install unzip wget curl jq net-tools
+RUN curl -sSL https://get.docker.com | sh
 
 ENV KAFKA_VERSION=$kafka_version SCALA_VERSION=$scala_version
 ADD download-kafka.sh /tmp/download-kafka.sh

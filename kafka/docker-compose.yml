@@ -6,6 +6,7 @@ services:
       - "2181:2181"
   kafka:
     build: .
+    image: nothing/kafka
     ports:
       - "9092"
     environment:
