@@ -1,5 +1,5 @@
 
-From arm32v7/openjdk:latest
+From arm32v7/openjdk:slim
 
 
 ARG kafka_version=0.11.0.0
